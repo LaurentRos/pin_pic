@@ -6,9 +6,13 @@ import MapContainer from './maps';
 export default class App extends Component {
     render() {
         return (
-            <div id="app">
-                <Header />
-                <MapContainer />
+            <div className="app">
+                <div className="header">
+                    <Header />
+                </div>
+                <div className="map">
+                    <MapContainer />
+                </div>
             </div>
         );
     }
