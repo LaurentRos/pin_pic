@@ -44,9 +44,6 @@ export default class CameraModal extends Component {
                         this.camera = cam;
                     }}
                 >
-                    <div style={style.captureContainer} onClick={this.takePicture}>
-                        <div style={style.captureButton} />
-                    </div>
                 </Camera>
                 <img
                     style={style.captureImage}
@@ -54,6 +51,9 @@ export default class CameraModal extends Component {
                         this.img = img;
                     }}
                 />
+                <div style={style.captureContainer} onClick={this.takePicture}>
+                    <div style={style.captureButton} />
+                </div>
             </div>
         );
     }

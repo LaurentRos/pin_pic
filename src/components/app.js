@@ -23,18 +23,16 @@ export default class App extends Component {
 
     render() {
         return (
-            <div className="app">
-                <div className="header">
-                    <Header />
-                </div>
-                <div className="map">
+            <div style={styles.app}>
+                <Header />
+                <div style={styles.mapContainer}>
                     <MapContainer />
                 </div>
                 <CameraModal
                     isModalOpen={this.state.isCameraModalOpen}
                     toggleCameraModal={this.toggleCameraModal}
                 />
-                <div className="buttonContainer">
+                <div style={styles.buttonContainer}>
                     <Button
                         fab
                         colored
@@ -49,4 +47,28 @@ export default class App extends Component {
             </div>
         );
     }
+}
+
+const styles = {
+    app: {
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+    },
+    
+    mapContainer: {
+        position: 'relative',
+        display: 'flex',
+        flex: 1,
+    },
+    
+    buttonContainer: {
+        position: 'absolute',
+        bottom: 0,
+        padding: 10,
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+    }    
 }
