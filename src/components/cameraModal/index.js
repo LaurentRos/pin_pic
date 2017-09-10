@@ -1,4 +1,5 @@
 import { Component } from 'preact';
+import PropTypes from 'prop-types';
 
 import Camera from 'react-camera';
 
@@ -8,6 +9,11 @@ export default class CameraModal extends Component {
         this.takePicture = this.takePicture.bind(this);
         this.hideModal = this.hideModal.bind(this);
     }
+
+    static propTypes = {
+        isModalOpen: PropTypes.bool,
+        toggleCameraModal: PropTypes.func,
+    };
 
     static defaultProps = {
         isModalOpen: false,
