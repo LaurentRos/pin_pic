@@ -21,7 +21,7 @@ export default class CameraModal extends Component {
     }
 
     hideModal() {
-        return this.props.isModalOpen ? null : {display: 'none'}
+        return this.props.isModalOpen ? {top: 0, opacity: 1} : {top: '100vh', opacity: 0}
     }
 
     render() {
@@ -56,6 +56,14 @@ export default class CameraModal extends Component {
 const style = {
     preview: {
         position: 'relative',
+    },
+    container: {
+        height: '100%',
+        width: '100%',
+        zIndex: 100,
+        position: 'absolute',
+        background: 'black',
+        transition: 'all 0.3s',
     },
     captureContainer: {
         display: 'flex',
