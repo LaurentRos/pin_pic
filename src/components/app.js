@@ -12,6 +12,7 @@ export default class App extends Component {
             isCameraModalOpen: false,
         })
         this.toggleCameraModal = this.toggleCameraModal.bind(this);
+        this.setPicture = this.setPicture.bind(this);
     }
 
     toggleCameraModal() {
@@ -21,16 +22,27 @@ export default class App extends Component {
         });
     }
 
+    setPicture(picture) {
+        this.img.src = URL.createObjectURL(picture);
+    }
+
     render() {
         return (
             <div style={styles.app}>
                 <Header />
                 <div style={styles.mapContainer}>
+                    <img
+                        style={styles.picture}
+                        ref={(img) => {
+                            this.img = img;
+                        }}
+                    />
                     <MapContainer />
                 </div>
                 <CameraModal
                     isModalOpen={this.state.isCameraModalOpen}
                     toggleCameraModal={this.toggleCameraModal}
+                    setPicture={this.setPicture}
                 />
                 <div style={styles.buttonContainer}>
                     <Button
@@ -55,6 +67,14 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
+    },
+
+    picture: {
+        top: 10,
+        right: 10,
+        position: 'absolute',
+        zIndex: 10,
+        height: 200,
     },
     
     mapContainer: {

@@ -13,6 +13,7 @@ export default class CameraModal extends Component {
     static propTypes = {
         isModalOpen: PropTypes.bool,
         toggleCameraModal: PropTypes.func,
+        setPicture: PropTypes.func,
     };
 
     static defaultProps = {
@@ -22,6 +23,7 @@ export default class CameraModal extends Component {
     takePicture() {
         this.camera.capture()
         .then(blob => {
+            this.props.setPicture(blob)
         });
         this.props.toggleCameraModal()
     }
@@ -45,12 +47,6 @@ export default class CameraModal extends Component {
                     }}
                 >
                 </Camera>
-                <img
-                    style={style.captureImage}
-                    ref={(img) => {
-                        this.img = img;
-                    }}
-                />
                 <div style={style.captureContainer} onClick={this.takePicture}>
                     <div style={style.captureButton} />
                 </div>
