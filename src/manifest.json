@@ -1,6 +1,6 @@
 {
-    "name": "pinpic",
-    "short_name": "pinpic",
+    "name": "PinPic PWA",
+    "short_name": "PinPic",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait",
