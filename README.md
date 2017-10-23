@@ -1,19 +1,21 @@
-# {{ name }}
+# PinPic PWA
 
-## CLI Commands
+This is the companion code repository for the article : [Your Preact Progressive Web App using Preact-CLI, Webpack, Material Design and Web APIs](http://www.theodo.fr/blog/2017/11/preact-progressive-web-app-webpack-material-design-web-apis/)
 
-``` bash
-# install dependencies
-npm install
+## Start the project
 
-# serve with hot reload at localhost:8080
-npm run dev
+- Install the project
 
-# build for production with minification
-npm run build
+```bash
+# Install dependencies
+yarn install
 
-# test the production build locally
-npm run serve
+# Serve with hot reload
+yarn dev
+
+# Build for production with minification
+yarn build
+
+# Test the production build locally
+yarn serve
 ```
-
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
