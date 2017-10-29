@@ -6,6 +6,21 @@ import MapContainer from './maps';
 import CameraModal from './cameraModal';
 
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.setState({
+            isCameraModalOpen: false,
+        })
+        this.toggleCameraModal = this.toggleCameraModal.bind(this);
+    }
+
+    toggleCameraModal() {
+        const isCameraModalOpen = this.state.isCameraModalOpen;
+        this.setState({
+            isCameraModalOpen: !isCameraModalOpen
+        });
+    }
+
     render() {
         return (
             <div className="app">
@@ -15,7 +30,10 @@ export default class App extends Component {
                 <div className="map">
                     <MapContainer />
                 </div>
-                <CameraModal />
+                <CameraModal
+                    isModalOpen={this.state.isCameraModalOpen}
+                    toggleCameraModal={this.toggleCameraModal}
+                />
                 <div className="buttonContainer">
                     <Button
                         fab

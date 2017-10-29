@@ -3,23 +3,35 @@ import { Component } from 'preact';
 import Camera from 'react-camera';
 
 export default class CameraModal extends Component {
-
     constructor(props) {
         super(props);
         this.takePicture = this.takePicture.bind(this);
+        this.hideModal = this.hideModal.bind(this);
     }
+
+    static defaultProps = {
+        isModalOpen: false,
+    };
 
     takePicture() {
         this.camera.capture()
         .then(blob => {
-            this.img.src = URL.createObjectURL(blob);
-            this.img.onload = () => { URL.revokeObjectURL(this.src); }
-        })
+        });
+        this.props.toggleCameraModal()
+    }
+
+    hideModal() {
+        return this.props.isModalOpen ? null : {display: 'none'}
     }
 
     render() {
         return (
-            <div style={style.container}>
+            <div
+                style={{
+                    ...style.container,
+                    ...this.hideModal()
+                }}
+            >
                 <Camera
                     style={style.preview}
                     ref={(cam) => {
