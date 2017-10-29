@@ -3,6 +3,7 @@ import { Component } from 'preact';
 import Header from './header';
 import { Button, Icon } from 'preact-mdl'
 import MapContainer from './maps';
+import CameraModal from './cameraModal';
 
 export default class App extends Component {
     render() {
@@ -14,6 +15,7 @@ export default class App extends Component {
                 <div className="map">
                     <MapContainer />
                 </div>
+                <CameraModal />
                 <div className="buttonContainer">
                     <Button
                         fab
